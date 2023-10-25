@@ -31,7 +31,7 @@ export default function About() {
               praesentium perferendis dolores veritatis! Voluptatibus ipsam
               nesciunt officia quia dolorem!
             </p>
-            <Link to="./public/pdf/Test.pdf" target="_blank">
+            <Link to="/pdf/Test.pdf" target="_blank">
               <button className="about-btn mt-2 no-underline bg-blue-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                 View My Resume
               </button>
