@@ -13,7 +13,7 @@ export default function About() {
           </div>
           <div className="col-xl-7 col-lg-8 col-md-8 col-sm-6 mt-5">
             <p>
-              <span className="mt-5 text-secondary text-decoration-underline fs-5 fw-bold ">
+              <span className="about-maintext mt-5 text-secondary text-decoration-underline fs-5 fw-bold ">
                 INTRO
               </span>
               <br />
