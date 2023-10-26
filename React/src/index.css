@@ -17,8 +17,13 @@
   font-size: 1.4vw;
   opacity: 0.85;
 }
-.about-btn{
-    font-size: 1.3vw;
-    width:15vw;
-    height: 5vh;
+.about-btn {
+  font-size: 1.3vw;
+  width: 15vw;
+  height: 5vh;
 }
+
+.sk_input::placeholder {
+  color: white;
+}
+

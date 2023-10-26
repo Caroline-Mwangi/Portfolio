@@ -1,3 +1,5 @@
+import AddSkill from "./AddSkill";
+
 export default function Skills() {
   return (
     <>
@@ -9,7 +11,10 @@ export default function Skills() {
           <br />
           <span className="about-maintext text-white fw-bold ">SKILLS</span>
         </p>
+        <AddSkill />
       </div>
+
+      
     </>
   );
 }
