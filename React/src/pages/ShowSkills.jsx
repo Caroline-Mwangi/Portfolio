@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import SkillDetails from "./SkillDetails";
+import { Link } from "react-router-dom";
 
 export default function ShowSkills() {
   const [skills, setSkills] = useState([]);
@@ -27,12 +29,9 @@ export default function ShowSkills() {
                     <img src={skill.image} class="card-img-top" alt="..." />
                     <div class="card-body bg-black text-white text-center ">
                       <p class="card-title">{skill.title}</p>
-                      <a
-                        href="#"
-                        class="link-primary link-underline-primary link-offset-2"
-                      >
-                        Read More
-                      </a>
+                      <Link to={"/skills/" + skill.id}>
+                        <p className="text-primary">Read More</p>
+                      </Link>
                     </div>
                   </div>
                 </div>

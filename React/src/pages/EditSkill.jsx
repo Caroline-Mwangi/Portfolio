@@ -1,15 +1,28 @@
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function AddSkill() {
+export default function EditSkill() {
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const navigate = useNavigate();
+  const { id } = useParams();
 
-  const AddSkillInfo = async () => {
+  let loadSkill = async () => {
+    const result = await axios.get(`http://127.0.0.1:8000/skills/${id}/`);
+
+    setImage(result.data.image);
+    setTitle(result.data.title);
+    setDescription(result.data.description);
+  };
+
+  useEffect(() => {
+    loadSkill();
+  }, []);
+
+  const EditSkillInfo = async () => {
     let field = new FormData();
 
     field.append("title", title);
@@ -20,10 +33,11 @@ export default function AddSkill() {
     }
 
     await axios({
-      method: "post",
-      url: "http://127.0.0.1:8000/skills/",
+      method: "PUT",
+      url: `http://127.0.0.1:8000/skills/${id}/`,
       data: field,
     }).then((response) => {
+      console.log(response.data);
       navigate("/");
     });
   };
@@ -31,11 +45,11 @@ export default function AddSkill() {
     <>
       <button
         type="button"
-        class="skill-btn btn bg-blue-900 text-white fw-bold"
+        class="skill-btn btn text-white bg-primary ms-3 rounded"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
       >
-        Add a skill
+        Edit
       </button>
 
       <div
@@ -51,11 +65,11 @@ export default function AddSkill() {
           <div class="border border-secondary modal-content bg-black">
             <div class="modal-header">
               <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">
-                ADD A SKILL
+                EDIT SKILL
               </h1>
             </div>
             <div class="modal-body ">
-              <img src=" " alt="" />
+              <img src={image} alt="" />
               <input
                 type="file"
                 className="form-control bg-black text-white"
@@ -68,6 +82,7 @@ export default function AddSkill() {
                 className="sk_input form-control mt-3 mb-3 bg-black text-white"
                 placeholder="Skill Title"
                 name="title"
+                value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
 
@@ -76,6 +91,7 @@ export default function AddSkill() {
                 className="sk_input form-control bg-black text-white"
                 placeholder="Skill Description"
                 name="description"
+                value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
@@ -90,10 +106,10 @@ export default function AddSkill() {
               <button
                 type="button"
                 class="text-white btn bg-primary"
-                onClick={AddSkillInfo}
+                onClick={EditSkillInfo}
                 data-bs-dismiss="modal"
               >
-                Save
+                Update
               </button>
             </div>
           </div>
