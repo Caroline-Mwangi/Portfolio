@@ -37,7 +37,7 @@ export default function EditSkill() {
       url: `http://127.0.0.1:8000/skills/${id}/`,
       data: field,
     }).then((response) => {
-      console.log(response.data);
+    //   console.log(response.data);
       navigate("/");
     });
   };

@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import ShowSkills from "./pages/ShowSkills";
 import SkillDetails from "./pages/SkillDetails";
 import AddSkill from "./pages/AddSkill";
+import ShowAllSkills from "./pages/ShowAllSkills";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/skills/" element={<ShowSkills />} /> */}
+          <Route path="/skills/" element={<ShowAllSkills />} />
           <Route path="/skills/:id/" element={<SkillDetails />} />
         </Routes>
       </BrowserRouter>
