@@ -25,7 +25,7 @@ export default function ShowSkills() {
                   key={index}
                   className={`carousel-item ${index === 0 ? "active" : ""}`}
                 >
-                  <div class="card border-secondary">
+                  <div class="card border-gray-800">
                     <img src={skill.image} class="card-img-top" alt="..." />
                     <div class="card-body bg-black text-white text-center ">
                       <p class="card-title">{skill.title}</p>
